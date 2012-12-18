@@ -1,24 +1,19 @@
 Name:           efl
-Version:	1.7.99.20121215svn
-Release:        1%{?dist}
+Version:        1.7.99
+Release:        1.svn81177%{?dist}
 License:        BSD-2-Clause and LGPL-2.1 and Zlib
 Summary:        Enlightenment Foundation Libraries - set of libraries used (not only) by E17
-Url:            git://git.enlightenment.org/git/e.git
-Group:          Development/Libraries/C and C++
-Source:         %{name}-%{version}.tar.gz
+Url:            http://www.enlightenment.org/
+Group:          System Environment/Libraries
+Source:         %{name}-%{version}.svn81177.tar.xz
 BuildRequires:  autoconf
 BuildRequires:  automake
-BuildRequires:  gcc-c++
 BuildRequires:  libtool
-BuildRequires:  pkgconfig
 
-BuildRequires:  pkgconfig(freetype2)
 BuildRequires:  glibc-devel
 BuildRequires:  harfbuzz-devel >= 0.9.0
 BuildRequires:  libjpeg-devel 
 BuildRequires:  openssl-devel
-BuildRequires:  pkgconfig(glib-2.0)
-BuildRequires:  pkgconfig(gl)
 BuildRequires:  SDL-devel
 BuildRequires:  fontconfig-devel
 BuildRequires:  fribidi-devel
@@ -47,7 +42,6 @@ BuildRequires:  libXext-devel
 BuildRequires:  libxcb-devel
 BuildRequires:  xcb-util-image-devel
 BuildRequires:  zlib-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
 EFL is library collection providing various functinality used (not only)
@@ -55,7 +49,7 @@ by Enlightenment 17, terminology, Tizen mobile platform and much more.
 
 %package devel
 Summary:        Headers, pkgconfig files and other files for development with EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 
 Requires:       %{name} = %{version}
 Requires:       libecore1 = %{version}
@@ -85,7 +79,7 @@ Headers, pkgconfig files and other files needed for development with EFL.
 
 %package -n libecore1
 Summary:        Ecore, part of EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 License:        BSD-2-Clause
 
 %description -n libecore1
@@ -94,7 +88,7 @@ convenient things for a programmer, to save time and effort.
 
 %package -n libeet1
 Summary:        Eet, part of EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 License:        BSD-2-Clause
 
 %description -n libeet1
@@ -113,7 +107,7 @@ read by any architecture.
 %package -n libeina1
 License:        LGPL-2.1
 Summary:        Eina, part of EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 
 %description -n libeina1
 Eina is library handling various data types.
@@ -121,7 +115,7 @@ Eina is library handling various data types.
 %package -n libeio1
 License:        LGPL-2.1
 Summary:        Eio, part of EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 
 %description -n libeio1
 Extension of ecore for parallel I/O operations. Part of Enlightenment Foundation Libraries.
@@ -129,7 +123,7 @@ Extension of ecore for parallel I/O operations. Part of Enlightenment Foundation
 %package -n libembryo1
 License:        BSD-2-Clause and Zlib
 Summary:        Embryo, part of EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 
 %description -n libembryo1
 Embryo is a tiny library designed to interpret limited small programs compiled
@@ -140,7 +134,7 @@ untouched.
 %package -n libeo1
 License:        BSD-2-Clause
 Summary:        Eo, part of EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 
 %description -n libeo1
 Eo is library providing basic E object in OOP way of programming.
@@ -148,7 +142,7 @@ Eo is library providing basic E object in OOP way of programming.
 %package -n libevas1
 License:        BSD-2-Clause
 Summary:        Evas, part of EFL
-Group:          Development/Libraries/C and C++
+Group:          System Environment/Libraries
 
 %description -n libevas1
 Evas is a clean display canvas API that implements a scene graph, not an
@@ -157,7 +151,7 @@ systems that can draw anti-aliased text, smooth super and sub-sampled scaled
 images, alpha-blend objects and much more.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}.svn81177
 
 %build
 autoreconf -ifv
@@ -175,9 +169,6 @@ make %{?_smp_mflags}
 make install DESTDIR="%buildroot"
 find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 %find_lang efl
-
-%clean
-rm -rf %{buildroot}
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
