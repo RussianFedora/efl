@@ -1,4 +1,4 @@
-%global svn_revision 81177
+%global svn_revision svn81177
 
 Name:           efl
 Version:        1.7.99
