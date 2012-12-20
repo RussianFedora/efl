@@ -225,7 +225,7 @@ systems that can draw anti-aliased text, smooth super and sub-sampled scaled
 images, alpha-blend objects and much more.
 
 %prep
-%setup -q -n %{name}-%{version}.svn81177
+%setup -q -n %{name}-%{version}.%{svn_revision}
 
 %build
 autoreconf -ifv
