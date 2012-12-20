@@ -348,7 +348,7 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 
 %changelog
 * Thu Dec 20 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
-- Remake spec to fedora standart
+- Remake spec to fedora standarts
 * Wed Dec 19 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
 - Add support pixman and SDL
 * Sun Dec 16 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
