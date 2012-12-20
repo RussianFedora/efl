@@ -1,11 +1,13 @@
+%global svn_revision 81177
+
 Name:           efl
 Version:        1.7.99
-Release:        1.svn81177%{?dist}
-License:        BSD-2-Clause and LGPL-2.1 and Zlib
+Release:        1.%{svn_revision}%{?dist}
+License:        BSD and LGPLv2+ and zlib
 Summary:        Enlightenment Foundation Libraries - set of libraries used (not only) by E17
 Url:            http://www.enlightenment.org/
 Group:          System Environment/Libraries
-Source:         %{name}-%{version}.svn81177.tar.xz
+Source:         %{name}-%{version}.%{svn_revision}.tar.xz
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  libtool
@@ -42,6 +44,7 @@ BuildRequires:  libXext-devel
 BuildRequires:  libxcb-devel
 BuildRequires:  xcb-util-image-devel
 BuildRequires:  zlib-devel
+BuildRequires:  doxygen
 
 %description
 EFL is library collection providing various functinality used (not only)
@@ -52,46 +55,52 @@ Summary:        Headers, pkgconfig files and other files for development with EF
 Group:          System Environment/Libraries
 
 Requires:       %{name} = %{version}
-Requires:       libecore1 = %{version}
-Requires:       libeet1 = %{version}
-Requires:       libeina1 = %{version}
-Requires:       libeio1 = %{version}
-Requires:       libembryo1 = %{version}
-Requires:       libeo1 = %{version}
-Requires:       libevas1 = %{version}
+Requires:       ecore = %{version}
+Requires:       eet = %{version}
+Requires:       libeina = %{version}
+Requires:       libeio = %{version}
+Requires:       embryo = %{version}
+Requires:       evas = %{version}
 Provides:       ecore-devel = %{version}
-Provides:       eina-devel = %{version}
-Provides:       eio-devel = %{version}
+Provides:       libeina-devel = %{version}
+Provides:       libeio-devel = %{version}
 Provides:       eet-devel = %{version}
 Provides:       embryo-devel = %{version}
-Provides:       eo-devel = %{version}
 Provides:       evas-devel = %{version}
-Obsoletes:      ecore-devel < %{version}
-Obsoletes:      eina-devel < %{version}
-Obsoletes:      eio-devel < %{version}
-Obsoletes:      eet-devel < %{version}
-Obsoletes:      embryo-devel < %{version}
-Obsoletes:      eo-devel < %{version}
-Obsoletes:      evas-devel < %{version}
 
 %description devel
 Headers, pkgconfig files and other files needed for development with EFL.
 
-%package -n libecore1
+%package -n ecore
 Summary:        Ecore, part of EFL
 Group:          System Environment/Libraries
-License:        BSD-2-Clause
+License:        BSD
+Provides:       libeina = %{version}
+Provides:       evas = %{version}
 
-%description -n libecore1
+%description -n ecore
 Ecore is a clean and tiny event loop library with many modules to do lots of
 convenient things for a programmer, to save time and effort.
 
-%package -n libeet1
+%package -n ecore-devel
+Summary:        Files needed for development with Ecore
+Group:          System Environment/Libraries
+Requires:       ecore = %{version}
+Provides:       eet-devel = %{version}
+Provides:       evas-devel = %{version}
+Provides:       libeina-devel = %{version}
+
+
+%description -n ecore-devel
+Files needed for development with Ecore
+
+%package -n eet
 Summary:        Eet, part of EFL
 Group:          System Environment/Libraries
-License:        BSD-2-Clause
+License:        BSD
+Provides:       libeina = %{version}
 
-%description -n libeet1
+%description -n eet
 Eet is a tiny library designed to write an arbitrary set of chunks of
 data to a file and optionally compress each chunk (very much like a
 zip file) and allow fast random-access reading of the file later
@@ -104,43 +113,108 @@ other machines, or just writing to arbitrary files on the system. All
 data is encoded in a platform independent way and can be written and
 read by any architecture.
 
-%package -n libeina1
-License:        LGPL-2.1
+%package -n eet-devel
+Summary:        Files needed for development with eet
+Group:          System Environment/Libraries
+Requires:       eet = %{version}
+Provides:       libeina-devel = %{version}
+
+%description -n eet-devel
+Files needed for development with eet
+
+%package -n libeina
 Summary:        Eina, part of EFL
 Group:          System Environment/Libraries
+License:        LGPLv2+
 
-%description -n libeina1
+%description -n libeina
 Eina is library handling various data types.
 
-%package -n libeio1
-License:        LGPL-2.1
+%package -n libeina-devel
+Summary:        Files needed for development with eina
+Group:          System Environment/Libraries
+Requires:       libeina = %{version}
+
+%description -n libeina-devel
+Files needed for development with eina
+
+%package -n libeio
 Summary:        Eio, part of EFL
 Group:          System Environment/Libraries
+License:        LGPLv2+
 
-%description -n libeio1
-Extension of ecore for parallel I/O operations. Part of Enlightenment Foundation Libraries.
+%description -n libeio
+Extension of ecore for parallel I/O operations. 
+Part of Enlightenment Foundation Libraries.
 
-%package -n libembryo1
-License:        BSD-2-Clause and Zlib
+%package -n libeio-devel
+Summary:        Files needed for development with eio
+Group:          System Environment/Libraries
+Requires:       libeio = %{version}
+
+%description -n libeio-devel
+Files needed for development with eio
+
+%package -n embryo
 Summary:        Embryo, part of EFL
 Group:          System Environment/Libraries
+License:        BSD and zlib
 
-%description -n libembryo1
+%description -n embryo
 Embryo is a tiny library designed to interpret limited small programs compiled
 by the included compiler, embryo_cc. It is mostly a cleaned up and smaller
 version of the original Small abstract machine. The compiler is mostly
 untouched.
 
-%package -n libeo1
-License:        BSD-2-Clause
+%package -n embryo-devel
+Summary:        Files needed for development with embryo
+Group:          System Environment/Libraries
+Requires:       embryo = %{version}
+
+%description -n embryo-devel
+Files needed for development with embryo
+
+%package -n eo
+License:        BSD
 Summary:        Eo, part of EFL
 Group:          System Environment/Libraries
 
-%description -n libeo1
+%description -n eo
 Eo is library providing basic E object in OOP way of programming.
 
+%package -n eo-devel
+License:        BSD
+Summary:        Files needed for development with
+Group:          System Environment/Libraries
+
+%description -n eo-devel
+Files needed for development with
+
+%package -n evas
+Summary:        Evas, part of EFL
+Group:          System Environment/Libraries
+License:        BSD
+Provides:       eet = %{version}
+Provides:       libeina = %{version}
+
+%description -n evas
+Evas is a clean display canvas API that implements a scene graph, not an
+immediate-mode rendering target, is cross-platform, for several target display
+systems that can draw anti-aliased text, smooth super and sub-sampled scaled
+images, alpha-blend objects and much more.
+
+%package -n evas-devel
+Summary:        Files needed for development with evas
+Group:          System Environment/Libraries
+Requires:       evas = %{version}
+Provides:       libeina-devel = %{version}
+Provides:       eet-devel = %{version}
+
+%description -n evas-devel
+Files needed for development with evas
+
 %package -n libevas1
-License:        BSD-2-Clause
+License:        BSD
 Summary:        Evas, part of EFL
 Group:          System Environment/Libraries
 
@@ -162,6 +236,14 @@ autoreconf -ifv
     --disable-tslib \
     --enable-harfbuzz \
     --enable-fb \
+    --enable-pixman \
+    --enable-pixman-font \
+    --enable-pixman-rect \
+    --enable-pixman-line \
+    --enable-pixman-poly \
+    --enable-pixman-image \
+    --enable-sdl \
+    
 
 make %{?_smp_mflags}
 
@@ -173,71 +255,99 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%post -n libecore1 -p /sbin/ldconfig
-%postun -n libecore1 -p /sbin/ldconfig
+%post -n ecore -p /sbin/ldconfig
+%postun -n ecore -p /sbin/ldconfig
 
-%post -n libeet1 -p /sbin/ldconfig
-%postun -n libeet1 -p /sbin/ldconfig
+%post -n eet -p /sbin/ldconfig
+%postun -n eet -p /sbin/ldconfig
 
-%post -n libeina1 -p /sbin/ldconfig
-%postun -n libeina1 -p /sbin/ldconfig
+%post -n libeina -p /sbin/ldconfig
+%postun -n libeina -p /sbin/ldconfig
 
-%post -n libeio1 -p /sbin/ldconfig
-%postun -n libeio1 -p /sbin/ldconfig
+%post -n libeio -p /sbin/ldconfig
+%postun -n libeio -p /sbin/ldconfig
 
-%post -n libembryo1 -p /sbin/ldconfig
-%postun -n libembryo1 -p /sbin/ldconfig
+%post -n embryo -p /sbin/ldconfig
+%postun -n embryo -p /sbin/ldconfig
 
-%post -n libeo1 -p /sbin/ldconfig
-%postun -n libeo1 -p /sbin/ldconfig
+%post -n eo -p /sbin/ldconfig
+%postun -n eo -p /sbin/ldconfig
 
-%post -n libevas1 -p /sbin/ldconfig
-%postun -n libevas1 -p /sbin/ldconfig
+%post -n evas -p /sbin/ldconfig
+%postun -n evas -p /sbin/ldconfig
 
 %files -f efl.lang
-%{_bindir}/*
 %doc README COPYING AUTHORS
-%{_libexecdir}/dummy_slave
-%{_libexecdir}/evas_cserve2*
-%{_libdir}/evas
+
+%files -n ecore
 %{_libdir}/ecore
 %{_libdir}/ecore_evas
-%{_datadir}/embryo
-%{_datadir}/evas
-%{_datadir}/eo
-
-%files -n libecore1
 %{_libdir}/libecore*.so.*
 
-%files -n libeet1
+%files -n eet
 %{_libdir}/libeet.so.*
+%{_bindir}/eet
 
-%files -n libeina1
+%files -n libeina
+%{_bindir}/eina-bench-cmp
 %{_libdir}/libeina.so.*
 
-%files -n libeio1
+%files -n libeio
 %{_libdir}/libeio.so.*
 
-%files -n libembryo1
+%files -n embryo
+%{_bindir}/embryo_cc
 %{_libdir}/libembryo.so.*
 
-%files -n libeo1
+%files -n eo
 %{_libdir}/libeo.so.*
 
-%files -n libevas1
+%files -n evas
+%{_bindir}/evas*
 %{_libdir}/libevas.so.*
+%{_libdir}/evas
+
+%files -n eo
+%{_libdir}/libeo.so.*
+%{_datadir}/eo
+
+%files -n ecore-devel
+%{_libdir}/libecore*.so
+%{_includedir}/ecore-1
+
+%files -n eet-devel
+%{_libdir}/libeet*.so
+%{_includedir}/eet-1
+
+%files -n libeina-devel
+%{_libdir}/libeina*.so
+%{_includedir}/eina-1
+
+%files -n libeio-devel
+%{_libdir}/eio*.so
+%{_includedir}/eio-1
+
+%files -n embryo-devel
+%{_libdir}/libembryo*.so
+%{_includedir}/embryo-1
+%{_datadir}/embryo
+
+%files -n evas-devel
+%{_libdir}/libevas*.so
+%{_includedir}/evas-1
+%{_datadir}/evas
+%{_libexecdir}/evas_cserve2*
+%{_libexecdir}/dummy_slave
+
+%files -n eo-devel
+%{_libdir}/libeo.so
+%{_includedir}/eo-1
 
 %files devel
 %{_libdir}/pkgconfig/*
-%{_libdir}/lib*.so
-%{_includedir}/ecore-1
-%{_includedir}/eina-1
-%{_includedir}/eio-1
-%{_includedir}/eet-1
-%{_includedir}/embryo-1
-%{_includedir}/eo-1
-%{_includedir}/evas-1
 
 %changelog
-* Sun Dec 16 2012 <vlevitan91@gmail.com>
+* Wed Dec 19 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
+- Add support pixman and SDL
+* Sun Dec 16 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
 - let there be efl
