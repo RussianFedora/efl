@@ -1,7 +1,7 @@
-%global svn_revision svn81177
+%global svn_revision svn81641
 
-Name:           efl%{?_isa}
-Version:        1.7.99
+Name:           efl
+Version:        1.7.4
 Release:        1.%{svn_revision}%{?dist}
 License:        BSD and LGPLv2+ and zlib
 Summary:        Enlightenment Foundation Libraries - set of libraries used (not only) by E17
@@ -46,59 +46,66 @@ BuildRequires:  xcb-util-image-devel
 BuildRequires:  zlib-devel
 BuildRequires:  doxygen
 
+Requires:       ecore = %{version}
+Requires:       eet = %{version}
+Requires:       libeina = %{version}
+Requires:       eio = %{version}
+Requires:       embryo = %{version}
+Requires:       evas = %{version}
+Requires:       eo = %{version}
+
 %description
 EFL is library collection providing various functinality used (not only)
 by Enlightenment 17, terminology, Tizen mobile platform and much more.
 
-%package devel%{?_isa}
+%package devel
 Summary:        Headers, pkgconfig files and other files for development with EFL
 Group:          System Environment/Libraries
 
-Requires:       %{name}%{?_isa} = %{version}.%{release}
-Requires:       ecore%{?_isa} = %{version}.%{release}
-Requires:       eet%{?_isa} = %{version}.%{release}
-Requires:       libeina%{?_isa} = %{version}.%{release}
-Requires:       libeio%{?_isa} = %{version}.%{release}
-Requires:       embryo%{?_isa} = %{version}.%{release}
-Requires:       evas%{?_isa} = %{version}.%{release}
-Provides:       ecore-devel%{?_isa} = %{version}.%{release}
-Provides:       libeina-devel%{?_isa} = %{version}.%{release}
-Provides:       libeio-devel%{?_isa} = %{version}.%{release}
-Provides:       eet-devel%{?_isa} = %{version}.%{release}
-Provides:       embryo-devel%{?_isa} = %{version}.%{release}
-Provides:       evas-devel%{?_isa} = %{version}.%{release}
+Requires:       %{name} = %{version}
+Requires:       ecore = %{version}
+Requires:       eet = %{version}
+Requires:       libeina = %{version}
+Requires:       eio = %{version}
+Requires:       embryo = %{version}
+Requires:       evas = %{version}
+Requires:       eo = %{version}
+Requires:       ecore-devel = %{version}
+Requires:       libeina-devel = %{version}
+Requires:       eet-devel = %{version}
+Requires:       evas-devel = %{version}
 
 %description devel
 Headers, pkgconfig files and other files needed for development with EFL.
 
-%package -n ecore%{?_isa}
+%package -n ecore
 Summary:        Ecore, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-Provides:       libeina%{?_isa} = %{version}.%{release}
-Provides:       evas%{?_isa} = %{version}.%{release}
+Requires:       libeina = %{version}
+Requires:       evas = %{version}
 
 %description -n ecore
 Ecore is a clean and tiny event loop library with many modules to do lots of
 convenient things for a programmer, to save time and effort.
 
-%package -n ecore-devel%{?_isa}
+%package -n ecore-devel
 Summary:        Files needed for development with Ecore
 Group:          System Environment/Libraries
-Requires:       ecore%{?_isa} = %{version}.%{release}
-Provides:       eet-devel%{?_isa} = %{version}.%{release}
-Provides:       evas-devel%{?_isa} = %{version}.%{release}
-Provides:       libeina-devel%{?_isa} = %{version}.%{release}
+Requires:       ecore = %{version}
+Requires:       eet-devel = %{version}
+Requires:       evas-devel = %{version}
+Requires:       libeina-devel = %{version}
 
 
 %description -n ecore-devel
 Files needed for development with Ecore
 
-%package -n eet%{?_isa}
+%package -n eet
 Summary:        Eet, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-Provides:       libeina%{?_isa} = %{version}.%{release}
+Requires:       libeina = %{version}
 
 %description -n eet
 Eet is a tiny library designed to write an arbitrary set of chunks of
@@ -113,16 +120,16 @@ other machines, or just writing to arbitrary files on the system. All
 data is encoded in a platform independent way and can be written and
 read by any architecture.
 
-%package -n eet-devel%{?_isa}
+%package -n eet-devel
 Summary:        Files needed for development with eet
 Group:          System Environment/Libraries
-Requires:       eet%{?_isa} = %{version}.%{release}
-Provides:       libeina-devel%{?_isa} = %{version}.%{release}
+Requires:       eet = %{version}
+Requires:       libeina-devel = %{version}
 
 %description -n eet-devel
 Files needed for development with eet
 
-%package -n libeina%{?_isa}
+%package -n libeina
 Summary:        Eina, part of EFL
 Group:          System Environment/Libraries
 License:        LGPLv2+
@@ -130,32 +137,24 @@ License:        LGPLv2+
 %description -n libeina
 Eina is library handling various data types.
 
-%package -n libeina-devel%{?_isa}
+%package -n libeina-devel
 Summary:        Files needed for development with eina
 Group:          System Environment/Libraries
-Requires:       libeina%{?_isa} = %{version}.%{release}
+Requires:       libeina = %{version}
 
 %description -n libeina-devel
 Files needed for development with eina
 
-%package -n libeio%{?_isa}
+%package -n eio
 Summary:        Eio, part of EFL
 Group:          System Environment/Libraries
 License:        LGPLv2+
 
-%description -n libeio
+%description -n eio
 Extension of ecore for parallel I/O operations. 
 Part of Enlightenment Foundation Libraries.
 
-%package -n libeio-devel%{?_isa}
-Summary:        Files needed for development with eio
-Group:          System Environment/Libraries
-Requires:       libeio%{?_isa} = %{version}.%{release}
-
-%description -n libeio-devel
-Files needed for development with eio
-
-%package -n embryo%{?_isa}
+%package -n embryo
 Summary:        Embryo, part of EFL
 Group:          System Environment/Libraries
 License:        BSD and zlib
@@ -166,15 +165,7 @@ by the included compiler, embryo_cc. It is mostly a cleaned up and smaller
 version of the original Small abstract machine. The compiler is mostly
 untouched.
 
-%package -n embryo-devel%{?_isa}
-Summary:        Files needed for development with embryo
-Group:          System Environment/Libraries
-Requires:       embryo%{?_isa} = %{version}.%{release}
-
-%description -n embryo-devel
-Files needed for development with embryo
-
-%package -n eo%{?_isa}
+%package -n eo
 License:        BSD
 Summary:        Eo, part of EFL
 Group:          System Environment/Libraries
@@ -182,20 +173,12 @@ Group:          System Environment/Libraries
 %description -n eo
 Eo is library providing basic E object in OOP way of programming.
 
-%package -n eo-devel%{?_isa}
-License:        BSD
-Summary:        Files needed for development with
-Group:          System Environment/Libraries
-
-%description -n eo-devel
-Files needed for development with
-
-%package -n evas%{?_isa}
+%package -n evas
 Summary:        Evas, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-Provides:       eet%{?_isa} = %{version}.%{release}
-Provides:       libeina%{?_isa} = %{version}.%{release}
+Requires:       eet = %{version}
+Requires:       libeina = %{version}
 
 %description -n evas
 Evas is a clean display canvas API that implements a scene graph, not an
@@ -203,17 +186,17 @@ immediate-mode rendering target, is cross-platform, for several target display
 systems that can draw anti-aliased text, smooth super and sub-sampled scaled
 images, alpha-blend objects and much more.
 
-%package -n evas-devel%{?_isa}
+%package -n evas-devel
 Summary:        Files needed for development with evas
 Group:          System Environment/Libraries
-Requires:       evas%{?_isa} = %{version}.%{release}
-Provides:       libeina-devel%{?_isa} = %{version}.%{release}
-Provides:       eet-devel%{?_isa} = %{version}.%{release}
+Requires:       evas = %{version}
+Requires:       libeina-devel = %{version}
+Requires:       eet-devel = %{version}
 
 %description -n evas-devel
 Files needed for development with evas
 
-%package -n libevas1%{?_isa}
+%package -n libevas1
 License:        BSD
 Summary:        Evas, part of EFL
 Group:          System Environment/Libraries
@@ -264,8 +247,8 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 %post -n libeina -p /sbin/ldconfig
 %postun -n libeina -p /sbin/ldconfig
 
-%post -n libeio -p /sbin/ldconfig
-%postun -n libeio -p /sbin/ldconfig
+%post -n eio -p /sbin/ldconfig
+%postun -n eio -p /sbin/ldconfig
 
 %post -n embryo -p /sbin/ldconfig
 %postun -n embryo -p /sbin/ldconfig
@@ -292,7 +275,7 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 %{_bindir}/eina-bench-cmp
 %{_libdir}/libeina.so.*
 
-%files -n libeio
+%files -n eio
 %{_libdir}/libeio.so.*
 
 %files -n embryo
@@ -313,40 +296,42 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 
 %files -n ecore-devel
 %{_libdir}/libecore*.so
+%{_libdir}/pkgconfig/ecore*
 %{_includedir}/ecore-1
 
 %files -n eet-devel
 %{_libdir}/libeet*.so
+%{_libdir}/pkgconfig/eet*
 %{_includedir}/eet-1
 
 %files -n libeina-devel
 %{_libdir}/libeina*.so
+%{_libdir}/pkgconfig/eina*
 %{_includedir}/eina-1
-
-%files -n libeio-devel
-%{_libdir}/libeio*.so
-%{_includedir}/eio-1
-
-%files -n embryo-devel
-%{_libdir}/libembryo*.so
-%{_includedir}/embryo-1
-%{_datadir}/embryo
 
 %files -n evas-devel
 %{_libdir}/libevas*.so
+%{_libdir}/pkgconfig/evas*
 %{_includedir}/evas-1
 %{_datadir}/evas
 %{_libexecdir}/evas_cserve2*
 %{_libexecdir}/dummy_slave
 
-%files -n eo-devel
+%files devel
+%{_libdir}/libembryo*.so
+%{_libdir}/pkgconfig/embryo*
+%{_includedir}/embryo-1
+%{_datadir}/embryo
 %{_libdir}/libeo.so
 %{_includedir}/eo-1
-
-%files devel
-%{_libdir}/pkgconfig/*
+%{_libdir}/pkgconfig/eo*
+%{_libdir}/libeio*.so
+%{_libdir}/pkgconfig/eio*
+%{_includedir}/eio-1
 
 %changelog
+* Sat Dec 22 2012 <vlevitan91@gmail.com> - 1.7.4-1.svn81641
+- Update to release version
 * Thu Dec 20 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
 - Remake spec to fedora standart
 * Wed Dec 19 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
