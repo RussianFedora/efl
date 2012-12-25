@@ -46,13 +46,13 @@ BuildRequires:  xcb-util-image-devel
 BuildRequires:  zlib-devel
 BuildRequires:  doxygen
 
-Requires:       ecore = %{version}
-Requires:       eet = %{version}
-Requires:       libeina = %{version}
-Requires:       eio = %{version}
-Requires:       embryo = %{version}
-Requires:       evas = %{version}
-Requires:       eo = %{version}
+Requires:       ecore%{?_isa} = %{release}%{version}
+Requires:       eet%{?_isa} = %{release}%{version}
+Requires:       libeina%{?_isa} = %{release}%{version}
+Requires:       eio%{?_isa} = %{release}%{version}
+Requires:       embryo%{?_isa} = %{release}%{version}
+Requires:       evas%{?_isa} = %{release}%{version}
+Requires:       eo%{?_isa} = %{release}%{version}
 
 %description
 EFL is library collection providing various functinality used (not only)
@@ -62,18 +62,18 @@ by Enlightenment 17, terminology, Tizen mobile platform and much more.
 Summary:        Headers, pkgconfig files and other files for development with EFL
 Group:          System Environment/Libraries
 
-Requires:       %{name} = %{version}
-Requires:       ecore = %{version}
-Requires:       eet = %{version}
-Requires:       libeina = %{version}
-Requires:       eio = %{version}
-Requires:       embryo = %{version}
-Requires:       evas = %{version}
-Requires:       eo = %{version}
-Requires:       ecore-devel = %{version}
-Requires:       libeina-devel = %{version}
-Requires:       eet-devel = %{version}
-Requires:       evas-devel = %{version}
+Requires:       %{name}%{?_isa} = %{release}%{version}
+Requires:       ecore%{?_isa} = %{release}%{version}
+Requires:       eet%{?_isa} = %{release}%{version}
+Requires:       libeina%{?_isa} = %{release}%{version}
+Requires:       eio%{?_isa} = %{release}%{version}
+Requires:       embryo%{?_isa} = %{release}%{version}
+Requires:       evas%{?_isa} = %{release}%{version}
+Requires:       eo%{?_isa} = %{release}%{version}
+Requires:       ecore-devel%{?_isa} = %{release}%{version}
+Requires:       libeina-devel%{?_isa} = %{release}%{version}
+Requires:       eet-devel%{?_isa} = %{release}%{version}
+Requires:       evas-devel%{?_isa} = %{release}%{version}
 
 %description devel
 Headers, pkgconfig files and other files needed for development with EFL.
@@ -82,8 +82,8 @@ Headers, pkgconfig files and other files needed for development with EFL.
 Summary:        Ecore, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-Requires:       libeina = %{version}
-Requires:       evas = %{version}
+# Requires:       libeina%{?_isa} = %{release}%{version}
+# Requires:       evas%{?_isa} = %{release}%{version}
 
 %description -n ecore
 Ecore is a clean and tiny event loop library with many modules to do lots of
@@ -92,10 +92,10 @@ convenient things for a programmer, to save time and effort.
 %package -n ecore-devel
 Summary:        Files needed for development with Ecore
 Group:          System Environment/Libraries
-Requires:       ecore = %{version}
-Requires:       eet-devel = %{version}
-Requires:       evas-devel = %{version}
-Requires:       libeina-devel = %{version}
+Requires:       ecore%{?_isa} = %{release}%{version}
+Requires:       eet-devel%{?_isa} = %{release}%{version}
+Requires:       evas-devel%{?_isa} = %{release}%{version}
+Requires:       libeina-devel%{?_isa} = %{release}%{version}
 
 
 %description -n ecore-devel
@@ -105,7 +105,7 @@ Files needed for development with Ecore
 Summary:        Eet, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-Requires:       libeina = %{version}
+# Requires:       libeina%{?_isa} = %{release}%{version}
 
 %description -n eet
 Eet is a tiny library designed to write an arbitrary set of chunks of
@@ -123,8 +123,8 @@ read by any architecture.
 %package -n eet-devel
 Summary:        Files needed for development with eet
 Group:          System Environment/Libraries
-Requires:       eet = %{version}
-Requires:       libeina-devel = %{version}
+Requires:       eet%{?_isa} = %{release}%{version}
+Requires:       libeina-devel%{?_isa} = %{release}%{version}
 
 %description -n eet-devel
 Files needed for development with eet
@@ -140,7 +140,7 @@ Eina is library handling various data types.
 %package -n libeina-devel
 Summary:        Files needed for development with eina
 Group:          System Environment/Libraries
-Requires:       libeina = %{version}
+Requires:       libeina%{?_isa} = %{release}%{version}
 
 %description -n libeina-devel
 Files needed for development with eina
@@ -177,8 +177,8 @@ Eo is library providing basic E object in OOP way of programming.
 Summary:        Evas, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-Requires:       eet = %{version}
-Requires:       libeina = %{version}
+# Requires:       eet%{?_isa} = %{release}%{version}
+# Requires:       libeina%{?_isa} = %{release}%{version}
 
 %description -n evas
 Evas is a clean display canvas API that implements a scene graph, not an
@@ -189,23 +189,12 @@ images, alpha-blend objects and much more.
 %package -n evas-devel
 Summary:        Files needed for development with evas
 Group:          System Environment/Libraries
-Requires:       evas = %{version}
-Requires:       libeina-devel = %{version}
-Requires:       eet-devel = %{version}
+Requires:       evas%{?_isa} = %{release}%{version}
+Requires:       libeina-devel%{?_isa} = %{release}%{version}
+Requires:       eet-devel%{?_isa} = %{release}%{version}
 
 %description -n evas-devel
 Files needed for development with evas
-
-%package -n libevas1
-License:        BSD
-Summary:        Evas, part of EFL
-Group:          System Environment/Libraries
-
-%description -n libevas1
-Evas is a clean display canvas API that implements a scene graph, not an
-immediate-mode rendering target, is cross-platform, for several target display
-systems that can draw anti-aliased text, smooth super and sub-sampled scaled
-images, alpha-blend objects and much more.
 
 %prep
 %setup -q -n %{name}-%{version}.%{svn_revision}
