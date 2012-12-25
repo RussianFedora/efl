@@ -82,8 +82,6 @@ Headers, pkgconfig files and other files needed for development with EFL.
 Summary:        Ecore, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-# Requires:       libeina%{?_isa} = %{release}%{version}
-# Requires:       evas%{?_isa} = %{release}%{version}
 
 %description -n ecore
 Ecore is a clean and tiny event loop library with many modules to do lots of
@@ -105,7 +103,6 @@ Files needed for development with Ecore
 Summary:        Eet, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-# Requires:       libeina%{?_isa} = %{release}%{version}
 
 %description -n eet
 Eet is a tiny library designed to write an arbitrary set of chunks of
@@ -177,8 +174,6 @@ Eo is library providing basic E object in OOP way of programming.
 Summary:        Evas, part of EFL
 Group:          System Environment/Libraries
 License:        BSD
-# Requires:       eet%{?_isa} = %{release}%{version}
-# Requires:       libeina%{?_isa} = %{release}%{version}
 
 %description -n evas
 Evas is a clean display canvas API that implements a scene graph, not an
