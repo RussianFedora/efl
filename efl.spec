@@ -1,7 +1,7 @@
 %global svn_revision svn81641
 
 Name:           efl
-Version:        1.7.4
+Version:        1.7.99
 Release:        1.%{svn_revision}%{?dist}
 License:        BSD and LGPLv2+ and zlib
 Summary:        Enlightenment Foundation Libraries - set of libraries used (not only) by E17
@@ -46,13 +46,13 @@ BuildRequires:  xcb-util-image-devel
 BuildRequires:  zlib-devel
 BuildRequires:  doxygen
 
-Requires:       ecore%{?_isa} = %{release}%{version}
-Requires:       eet%{?_isa} = %{release}%{version}
-Requires:       libeina%{?_isa} = %{release}%{version}
-Requires:       eio%{?_isa} = %{release}%{version}
-Requires:       embryo%{?_isa} = %{release}%{version}
-Requires:       evas%{?_isa} = %{release}%{version}
-Requires:       eo%{?_isa} = %{release}%{version}
+Requires:       ecore%{?_isa} = %{version}%{release}
+Requires:       eet%{?_isa} = %{version}%{release}
+Requires:       libeina%{?_isa} = %{version}%{release}
+Requires:       eio%{?_isa} = %{version}%{release}
+Requires:       embryo%{?_isa} = %{version}%{release}
+Requires:       evas%{?_isa} = %{version}%{release}
+Requires:       eo%{?_isa} = %{version}%{release}
 
 %description
 EFL is library collection providing various functinality used (not only)
@@ -62,18 +62,18 @@ by Enlightenment 17, terminology, Tizen mobile platform and much more.
 Summary:        Headers, pkgconfig files and other files for development with EFL
 Group:          System Environment/Libraries
 
-Requires:       %{name}%{?_isa} = %{release}%{version}
-Requires:       ecore%{?_isa} = %{release}%{version}
-Requires:       eet%{?_isa} = %{release}%{version}
-Requires:       libeina%{?_isa} = %{release}%{version}
-Requires:       eio%{?_isa} = %{release}%{version}
-Requires:       embryo%{?_isa} = %{release}%{version}
-Requires:       evas%{?_isa} = %{release}%{version}
-Requires:       eo%{?_isa} = %{release}%{version}
-Requires:       ecore-devel%{?_isa} = %{release}%{version}
-Requires:       libeina-devel%{?_isa} = %{release}%{version}
-Requires:       eet-devel%{?_isa} = %{release}%{version}
-Requires:       evas-devel%{?_isa} = %{release}%{version}
+Requires:       %{name}%{?_isa} = %{version}%{release}
+Requires:       ecore%{?_isa} = %{version}%{release}
+Requires:       eet%{?_isa} = %{version}%{release}
+Requires:       libeina%{?_isa} = %{version}%{release}
+Requires:       eio%{?_isa} = %{version}%{release}
+Requires:       embryo%{?_isa} = %{version}%{release}
+Requires:       evas%{?_isa} = %{version}%{release}
+Requires:       eo%{?_isa} = %{version}%{release}
+Requires:       ecore-devel%{?_isa} = %{version}%{release}
+Requires:       libeina-devel%{?_isa} = %{version}%{release}
+Requires:       eet-devel%{?_isa} = %{version}%{release}
+Requires:       evas-devel%{?_isa} = %{version}%{release}
 
 %description devel
 Headers, pkgconfig files and other files needed for development with EFL.
@@ -90,10 +90,10 @@ convenient things for a programmer, to save time and effort.
 %package -n ecore-devel
 Summary:        Files needed for development with Ecore
 Group:          System Environment/Libraries
-Requires:       ecore%{?_isa} = %{release}%{version}
-Requires:       eet-devel%{?_isa} = %{release}%{version}
-Requires:       evas-devel%{?_isa} = %{release}%{version}
-Requires:       libeina-devel%{?_isa} = %{release}%{version}
+Requires:       ecore%{?_isa} = %{version}%{release}
+Requires:       eet-devel%{?_isa} = %{version}%{release}
+Requires:       evas-devel%{?_isa} = %{version}%{release}
+Requires:       libeina-devel%{?_isa} = %{version}%{release}
 
 
 %description -n ecore-devel
@@ -120,8 +120,8 @@ read by any architecture.
 %package -n eet-devel
 Summary:        Files needed for development with eet
 Group:          System Environment/Libraries
-Requires:       eet%{?_isa} = %{release}%{version}
-Requires:       libeina-devel%{?_isa} = %{release}%{version}
+Requires:       eet%{?_isa} = %{version}%{release}
+Requires:       libeina-devel%{?_isa} = %{version}%{release}
 
 %description -n eet-devel
 Files needed for development with eet
@@ -137,7 +137,7 @@ Eina is library handling various data types.
 %package -n libeina-devel
 Summary:        Files needed for development with eina
 Group:          System Environment/Libraries
-Requires:       libeina%{?_isa} = %{release}%{version}
+Requires:       libeina%{?_isa} = %{version}%{release}
 
 %description -n libeina-devel
 Files needed for development with eina
@@ -184,9 +184,9 @@ images, alpha-blend objects and much more.
 %package -n evas-devel
 Summary:        Files needed for development with evas
 Group:          System Environment/Libraries
-Requires:       evas%{?_isa} = %{release}%{version}
-Requires:       libeina-devel%{?_isa} = %{release}%{version}
-Requires:       eet-devel%{?_isa} = %{release}%{version}
+Requires:       evas%{?_isa} = %{version}%{release}
+Requires:       libeina-devel%{?_isa} = %{version}%{release}
+Requires:       eet-devel%{?_isa} = %{version}%{release}
 
 %description -n evas-devel
 Files needed for development with evas
@@ -314,11 +314,11 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 %{_includedir}/eio-1
 
 %changelog
-* Sat Dec 22 2012 <vlevitan91@gmail.com> - 1.7.4-1.svn81641
-- Update to release version
-* Thu Dec 20 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
+* Wed Dec 26 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81641
+- Moved devel-package needed for building only e17 to efl-devel
+* Thu Dec 20 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81177
 - Remake spec to fedora standart
-* Wed Dec 19 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
+* Wed Dec 19 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81177
 - Add support pixman and SDL
-* Sun Dec 16 2012 <vlevitan91@gmail.com> - 0.7.99-1.svn81177
+* Sun Dec 16 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81177
 - let there be efl
