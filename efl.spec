@@ -46,13 +46,13 @@ BuildRequires:  xcb-util-image-devel
 BuildRequires:  zlib-devel
 BuildRequires:  doxygen
 
-Requires:       ecore%{?_isa} = %{version}%{release}
-Requires:       eet%{?_isa} = %{version}%{release}
-Requires:       libeina%{?_isa} = %{version}%{release}
-Requires:       eio%{?_isa} = %{version}%{release}
-Requires:       embryo%{?_isa} = %{version}%{release}
-Requires:       evas%{?_isa} = %{version}%{release}
-Requires:       eo%{?_isa} = %{version}%{release}
+Requires:       ecore%{?_isa} = %{version}-%{release}
+Requires:       eet%{?_isa} = %{version}-%{release}
+Requires:       libeina%{?_isa} = %{version}-%{release}
+Requires:       eio%{?_isa} = %{version}-%{release}
+Requires:       embryo%{?_isa} = %{version}-%{release}
+Requires:       evas%{?_isa} = %{version}-%{release}
+Requires:       eo%{?_isa} = %{version}-%{release}
 
 %description
 EFL is library collection providing various functinality used (not only)
@@ -62,18 +62,18 @@ by Enlightenment 17, terminology, Tizen mobile platform and much more.
 Summary:        Headers, pkgconfig files and other files for development with EFL
 Group:          System Environment/Libraries
 
-Requires:       %{name}%{?_isa} = %{version}%{release}
-Requires:       ecore%{?_isa} = %{version}%{release}
-Requires:       eet%{?_isa} = %{version}%{release}
-Requires:       libeina%{?_isa} = %{version}%{release}
-Requires:       eio%{?_isa} = %{version}%{release}
-Requires:       embryo%{?_isa} = %{version}%{release}
-Requires:       evas%{?_isa} = %{version}%{release}
-Requires:       eo%{?_isa} = %{version}%{release}
-Requires:       ecore-devel%{?_isa} = %{version}%{release}
-Requires:       libeina-devel%{?_isa} = %{version}%{release}
-Requires:       eet-devel%{?_isa} = %{version}%{release}
-Requires:       evas-devel%{?_isa} = %{version}%{release}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       ecore%{?_isa} = %{version}-%{release}
+Requires:       eet%{?_isa} = %{version}-%{release}
+Requires:       libeina%{?_isa} = %{version}-%{release}
+Requires:       eio%{?_isa} = %{version}-%{release}
+Requires:       embryo%{?_isa} = %{version}-%{release}
+Requires:       evas%{?_isa} = %{version}-%{release}
+Requires:       eo%{?_isa} = %{version}-%{release}
+Requires:       ecore-devel%{?_isa} = %{version}-%{release}
+Requires:       libeina-devel%{?_isa} = %{version}-%{release}
+Requires:       eet-devel%{?_isa} = %{version}-%{release}
+Requires:       evas-devel%{?_isa} = %{version}-%{release}
 
 %description devel
 Headers, pkgconfig files and other files needed for development with EFL.
@@ -90,10 +90,10 @@ convenient things for a programmer, to save time and effort.
 %package -n ecore-devel
 Summary:        Files needed for development with Ecore
 Group:          System Environment/Libraries
-Requires:       ecore%{?_isa} = %{version}%{release}
-Requires:       eet-devel%{?_isa} = %{version}%{release}
-Requires:       evas-devel%{?_isa} = %{version}%{release}
-Requires:       libeina-devel%{?_isa} = %{version}%{release}
+Requires:       ecore%{?_isa} = %{version}-%{release}
+Requires:       eet-devel%{?_isa} = %{version}-%{release}
+Requires:       evas-devel%{?_isa} = %{version}-%{release}
+Requires:       libeina-devel%{?_isa} = %{version}-%{release}
 
 
 %description -n ecore-devel
@@ -120,8 +120,8 @@ read by any architecture.
 %package -n eet-devel
 Summary:        Files needed for development with eet
 Group:          System Environment/Libraries
-Requires:       eet%{?_isa} = %{version}%{release}
-Requires:       libeina-devel%{?_isa} = %{version}%{release}
+Requires:       eet%{?_isa} = %{version}-%{release}
+Requires:       libeina-devel%{?_isa} = %{version}-%{release}
 
 %description -n eet-devel
 Files needed for development with eet
@@ -137,7 +137,7 @@ Eina is library handling various data types.
 %package -n libeina-devel
 Summary:        Files needed for development with eina
 Group:          System Environment/Libraries
-Requires:       libeina%{?_isa} = %{version}%{release}
+Requires:       libeina%{?_isa} = %{version}-%{release}
 
 %description -n libeina-devel
 Files needed for development with eina
@@ -184,9 +184,9 @@ images, alpha-blend objects and much more.
 %package -n evas-devel
 Summary:        Files needed for development with evas
 Group:          System Environment/Libraries
-Requires:       evas%{?_isa} = %{version}%{release}
-Requires:       libeina-devel%{?_isa} = %{version}%{release}
-Requires:       eet-devel%{?_isa} = %{version}%{release}
+Requires:       evas%{?_isa} = %{version}-%{release}
+Requires:       libeina-devel%{?_isa} = %{version}-%{release}
+Requires:       eet-devel%{?_isa} = %{version}-%{release}
 
 %description -n evas-devel
 Files needed for development with evas
@@ -265,9 +265,6 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 %files -n embryo
 %{_bindir}/embryo_cc
 %{_libdir}/libembryo.so.*
-
-%files -n eo
-%{_libdir}/libeo.so.*
 
 %files -n evas
 %{_bindir}/evas*
