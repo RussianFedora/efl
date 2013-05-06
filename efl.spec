@@ -2,7 +2,7 @@
 
 Name:           efl
 Version:        1.7.99
-Release:        1.%{svn_revision}%{?dist}
+Release:        2.%{svn_revision}%{?dist}
 License:        BSD and LGPLv2+ and zlib
 Summary:        Enlightenment Foundation Libraries - set of libraries used (not only) by E17
 Url:            http://www.enlightenment.org/
@@ -311,13 +311,20 @@ find %{buildroot}%{_libdir} -name '*.la' -exec rm -v {} \;
 %{_includedir}/eio-1
 
 %changelog
+* Mon May 06 2013 <ashejn@rusianfedora.ru> - 1.7.99-2.svn81788
+- bump release and rebuild against new libjpeg
+
 * Fri Dec 28 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81788
 - Update to last revision
+
 * Wed Dec 26 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81641
 - Moved devel-package needed for building only e17 to efl-devel
+
 * Thu Dec 20 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81177
 - Remake spec to fedora standart
+
 * Wed Dec 19 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81177
 - Add support pixman and SDL
+
 * Sun Dec 16 2012 <vlevitan91@gmail.com> - 1.7.99-1.svn81177
 - let there be efl
